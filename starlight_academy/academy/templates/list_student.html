@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>📘 Daftar Mahasiswa - Akademi Bintang Langit</title>
+  <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Daftar Mahasiswa</h1>
+    {% if msg %}<div class="alert">{{ msg }}</div>{% endif %}
+    <table>
+      <thead>
+        <tr><th>NIM</th><th>Nama</th><th>Tahun Masuk</th><th>Aksi</th></tr>
+      </thead>
+      <tbody>
+        {% for s in data %}
+        <tr>
+          <td>{{ s.nim }}</td>
+          <td>{{ s.nama }}</td>
+          <td>{{ s.tahun_masuk }}</td>
+          <td>
+            <a href="{{ url_for('main.detail_student', nim=s.nim) }}" class="btn btn-small">🔍 Detail</a>
+            <a href="{{ url_for('main.delete_student', nim=s.nim) }}" class="btn btn-danger btn-small"
+              onclick="return confirm('Yakin ingin menghapus?')">❌ Hapus</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <a href="{{ url_for('main.index') }}" class="btn btn-secondary">⬅️ Kembali ke Form</a>
+  </div>
+</body>
+</html>
+

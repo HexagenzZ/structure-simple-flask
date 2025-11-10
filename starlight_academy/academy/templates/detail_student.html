@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>🔭 Detail Mahasiswa - Akademi Bintang Langit</title>
+  <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h2>Detail Mahasiswa</h2>
+    <table class="detail-table">
+      <tr><th>NIM</th><td>{{ s.nim }}</td></tr>
+      <tr><th>Nama</th><td>{{ s.nama }}</td></tr>
+      <tr><th>Tahun Masuk</th><td>{{ s.tahun_masuk }}</td></tr>
+      <tr><th>Alamat</th><td>{{ s.alamat }}</td></tr>
+      <tr><th>Tanggal Lahir</th><td>{{ s.tanggal_lahir }}</td></tr>
+    </table>
+    <a href="{{ url_for('main.list_student') }}" class="btn btn-secondary">⬅️ Kembali</a>
+  </div>
+</body>
+</html>
+
