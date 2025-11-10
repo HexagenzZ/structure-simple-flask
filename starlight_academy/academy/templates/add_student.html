@@ -1,1 +1,30 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>✨ Tambah Siswa - Akademi Bintang Langit</title>
+  <link href="{{ url_for('static', filename='main.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🌌 Akademi Bintang Langit</h1>
+    <h2>Formulir Pendaftaran Mahasiswa Baru</h2>
+    {% if msg %}<div class="alert">{{ msg }}</div>{% endif %}
+    <form method="post" action="{{ url_for('main.add_student') }}">
+      <label>NIM</label>
+      <input name="nim" required>
+      <label>Nama</label>
+      <input name="nama" required>
+      <label>Tahun Masuk</label>
+      <input name="tahun_masuk" pattern="\d{4}" required>
+      <label>Alamat</label>
+      <textarea name="alamat"></textarea>
+      <label>Tanggal Lahir</label>
+      <input name="tanggal_lahir" type="date">
+      <button type="submit" class="btn">🌠 Simpan</button>
+      <a href="{{ url_for('main.list_student') }}" class="btn btn-secondary">📘 Lihat Daftar</a>
+    </form>
+  </div>
+</body>
+</html>
 
